@@ -19,8 +19,7 @@ MESSAGE_LANG = os.getenv("MESSAGE_LANG")
 CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
 
 # Get command line arguments
-# args = get_cmd_line_args()
-args = []
+args = get_cmd_line_args()
 # Get logo code from file. Filepath is given as a command line argument
 LOGO_CODE = "et 20"  # load_file(args.filepath)
 
@@ -102,7 +101,7 @@ def logo():
         )
         arg_parser.add_argument("filepath")
         arg_parser.add_argument("-d", "--debug", action="store_true")
-        return arg_parser.parse_args()
+        return arg_parser.parse_args([])
 
     def load_file(filename):
         """Loads a file and returns contents as a string."""
