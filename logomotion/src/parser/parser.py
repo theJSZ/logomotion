@@ -77,7 +77,9 @@ list
 """
 
 
-from .parser.globals import *
+# from .parser.globals import *
+from .globals import *
+
 from parser.command import *
 from parser.expression import *
 from parser.preparser import Preparser
