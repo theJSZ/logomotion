@@ -42,7 +42,7 @@ def main():
         raise Exception(err_msg)
 
 
-def compile_logo():
+def compile_logo(LOGO_CODE):
     """Compiles a user given logo file and generates code if there are no errors.
     Prints lexer & parser results if debug flag (-d, --debug) is on."""
 
