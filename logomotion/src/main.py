@@ -106,8 +106,8 @@ def logo():
     CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
 
     # Get command line arguments
-    args = get_cmd_line_args()
-
+    # args = get_cmd_line_args()
+    args = None
     # Get logo code from file. Filepath is given as a command line argument
     LOGO_CODE = "et 20"  # load_file(args.filepath)
 
