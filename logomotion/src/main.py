@@ -109,6 +109,6 @@ if __name__ == "__main__":
     args = get_cmd_line_args()
 
     # Get logo code from file. Filepath is given as a command line argument
-    LOGO_CODE = load_file(args.filepath)
+    LOGO_CODE = "et 20"  # load_file(args.filepath)
 
     main()
