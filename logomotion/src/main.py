@@ -13,6 +13,17 @@ from .utils.console_io import ConsoleIO
 from .utils.error_handler import ErrorHandler
 from .utils.logger import Logger
 
+# Load variables from .env file
+dotenv.load_dotenv()
+MESSAGE_LANG = os.getenv("MESSAGE_LANG")
+CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
+
+# Get command line arguments
+# args = get_cmd_line_args()
+args = None
+# Get logo code from file. Filepath is given as a command line argument
+LOGO_CODE = "et 20"  # load_file(args.filepath)
+
 
 def main():
     def get_code_generator():
@@ -99,16 +110,5 @@ def logo():
         with open(filename, "r", encoding="utf8") as file:
             content = file.readlines()
         return "".join(content)
-
-    # Load variables from .env file
-    dotenv.load_dotenv()
-    MESSAGE_LANG = os.getenv("MESSAGE_LANG")
-    CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
-
-    # Get command line arguments
-    # args = get_cmd_line_args()
-    args = None
-    # Get logo code from file. Filepath is given as a command line argument
-    LOGO_CODE = "et 20"  # load_file(args.filepath)
 
     main()
