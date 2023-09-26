@@ -110,6 +110,5 @@ if __name__ == "__main__":
 
     # Get logo code from file. Filepath is given as a command line argument
     LOGO_CODE = load_file(args.filepath)
-    LOGO_CODE = load_file(filename)
 
     main()
