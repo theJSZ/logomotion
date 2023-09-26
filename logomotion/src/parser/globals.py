@@ -1,7 +1,7 @@
 # pylint: disable=invalid-name, too-few-public-methods
 """Parsing rules and globals used by the parser"""
 
-from .lexer.lexer import Lexer
+from ..lexer.lexer import Lexer
 from code_generator.code_generator import JavaCodeGenerator
 from utils.logger import Logger
 from entities.symbol_tables import SymbolTables
