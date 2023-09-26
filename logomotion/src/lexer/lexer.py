@@ -4,9 +4,9 @@ Lexer module used by PLY's lexer-generator.
 # pylint: disable=missing-function-docstring, invalid-name
 
 from ..ply.lex import lex, TOKEN
-from lexer.token_types import TokenType
-from utils.logger import default_logger
-from utils.lowercase_converter import convert_to_lowercase as to_lowercase
+from .token_types import TokenType
+from ..utils.logger import default_logger
+from ..utils.lowercase_converter import convert_to_lowercase as to_lowercase
 
 
 class Lexer:
