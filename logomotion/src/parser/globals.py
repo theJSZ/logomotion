@@ -2,10 +2,10 @@
 """Parsing rules and globals used by the parser"""
 
 from ..lexer.lexer import Lexer
-from code_generator.code_generator import JavaCodeGenerator
-from utils.logger import Logger
-from entities.symbol_tables import SymbolTables
-from entities.ast.node import NodeFactory
+from ..code_generator.code_generator import JavaCodeGenerator
+from ..utils.logger import Logger
+from ..entities.symbol_tables import SymbolTables
+from ..entities.ast.node import NodeFactory
 
 precedence = (
     ("nonassoc", "EQUALS", "LESSTHAN", "GREATERTHAN", "LTEQUALS", "GTEQUALS"),
