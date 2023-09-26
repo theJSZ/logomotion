@@ -102,8 +102,10 @@ if __name__ == "__main__":
 
     # Load variables from .env file
     dotenv.load_dotenv()
-    MESSAGE_LANG = os.getenv("MESSAGE_LANG")
-    CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
+    # MESSAGE_LANG = os.getenv("MESSAGE_LANG")
+    # CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
+    MESSAGE_LANG = "FIN"
+    CODE_GEN_LANG = "FIN"
 
     # Get command line arguments
     args = get_cmd_line_args()
