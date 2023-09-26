@@ -41,31 +41,32 @@ def main():
         err_msg = f"{CODE_GEN_LANG} is not an implemented" "programming language for code generator"
         raise Exception(err_msg)
 
-    def compile_logo():
-        """Compiles a user given logo file and generates code if there are no errors.
-        Prints lexer & parser results if debug flag (-d, --debug) is on."""
 
-        logger.debug(LOGO_CODE + "\n")
-        # Tokenize
-        tokens = lexer.tokenize_input(LOGO_CODE)
-        logger.debug("Lexer tokens:")
-        logger.debug("\n".join((str(token) for token in tokens)) + "\n")
+def compile_logo():
+    """Compiles a user given logo file and generates code if there are no errors.
+    Prints lexer & parser results if debug flag (-d, --debug) is on."""
 
-        # Parse and type analyzation
-        start_node = parser.parse(LOGO_CODE)
-        if start_node:
-            start_node.check_types()
-            logger.debug("Parser AST:")
-            logger.debug(console_io.get_formatted_ast(start_node))
+    logger.debug(LOGO_CODE + "\n")
+    # Tokenize
+    tokens = lexer.tokenize_input(LOGO_CODE)
+    logger.debug("Lexer tokens:")
+    logger.debug("\n".join((str(token) for token in tokens)) + "\n")
 
-        # Code generation, if there are no errors
-        if start_node and not error_handler.errors:
-            logger.debug("Generated code:")
-            start_node.generate_code()
-            code_generator.write()
-        else:
-            error_handler.create_json_file()
-            error_handler.write_errors_to_console()
+    # Parse and type analyzation
+    start_node = parser.parse(LOGO_CODE)
+    if start_node:
+        start_node.check_types()
+        logger.debug("Parser AST:")
+        logger.debug(console_io.get_formatted_ast(start_node))
+
+    # Code generation, if there are no errors
+    if start_node and not error_handler.errors:
+        logger.debug("Generated code:")
+        start_node.generate_code()
+        code_generator.write()
+    else:
+        error_handler.create_json_file()
+        error_handler.write_errors_to_console()
 
     # Create required classes for the compiler
     console_io = ConsoleIO()
