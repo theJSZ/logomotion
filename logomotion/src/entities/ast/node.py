@@ -1,10 +1,10 @@
 # pylint: disable=missing-class-docstring,missing-function-docstring, unused-argument, too-many-instance-attributes
 """ Abstract Syntax Tree node definitions, returned by the parser. """
 from ..logotypes import LogoType
-from entities.symbol_tables import SymbolTables, default_symbol_tables
-from code_generator.code_generator import default_code_generator
-from utils.logger import Logger, default_logger
-from lexer.lexer import Lexer
+from ..symbol_tables import SymbolTables, default_symbol_tables
+from ...code_generator.code_generator import default_code_generator
+from ...utils.logger import Logger, default_logger
+from ...lexer.lexer import Lexer
 
 
 class Node:
