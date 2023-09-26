@@ -4,13 +4,15 @@ and storing error messages in a list when they occur during compiling
 
 import json
 import os
-from utils.console_io import default_console_io
+from .console_io import default_console_io
 
 FIN = "fin"
 ENG = "eng"
 DEFAULT_NAME = "errors"
 PATH = os.path.join(os.path.dirname(os.path.relpath(__file__)), "../../src/errors/")
-ERROR_MESSAGES_PATH = os.path.join(os.path.dirname(os.path.relpath(__file__)), "../../src/language/")
+ERROR_MESSAGES_PATH = os.path.join(
+    os.path.dirname(os.path.relpath(__file__)), "../../src/language/"
+)
 
 
 class ErrorHandler:
@@ -31,11 +33,15 @@ class ErrorHandler:
         self._err_msg_filename = name
 
     def _get_fin_messages(self):
-        with open(os.path.join(ERROR_MESSAGES_PATH, "fin/fin_error_messages.json"), encoding="utf-8") as file:
+        with open(
+            os.path.join(ERROR_MESSAGES_PATH, "fin/fin_error_messages.json"), encoding="utf-8"
+        ) as file:
             return json.load(file)
 
     def _get_eng_messages(self):
-        with open(os.path.join(ERROR_MESSAGES_PATH, "eng/eng_error_messages.json"), encoding="utf-8") as file:
+        with open(
+            os.path.join(ERROR_MESSAGES_PATH, "eng/eng_error_messages.json"), encoding="utf-8"
+        ) as file:
             return json.load(file)
 
     def _get_message_by_id(self, msg_id: str):
@@ -62,12 +68,7 @@ class ErrorHandler:
             fin_msg = fin_msg.replace(f"@{key}", str(value))
             eng_msg = eng_msg.replace(f"@{key}", str(value))
 
-        err_msgs = {
-            FIN: fin_msg,
-            ENG: eng_msg,
-            "start": lexspan[0],
-            "end": lexspan[1]
-        }
+        err_msgs = {FIN: fin_msg, ENG: eng_msg, "start": lexspan[0], "end": lexspan[1]}
 
         # Lexer is ran multiple times in the program
         # and causes the same error messages to occur
@@ -82,16 +83,8 @@ class ErrorHandler:
         fin_dict = {}
         eng_dict = {}
         for index, msg in enumerate(self.errors, start=1):
-            fin_dict[index] = {
-                "message": msg[FIN],
-                "start": msg["start"],
-                "end": msg["end"]
-            }
-            eng_dict[index] = {
-                "message": msg[ENG],
-                "start": msg["start"],
-                "end": msg["end"]
-            }
+            fin_dict[index] = {"message": msg[FIN], "start": msg["start"], "end": msg["end"]}
+            eng_dict[index] = {"message": msg[ENG], "start": msg["start"], "end": msg["end"]}
 
         try:
             fin_path = PATH + FIN + "_" + self._err_msg_filename + ".json"
