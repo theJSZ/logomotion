@@ -67,11 +67,6 @@ def main():
             error_handler.create_json_file()
             error_handler.write_errors_to_console()
 
-    # Load variables from .env file
-    dotenv.load_dotenv()
-    MESSAGE_LANG = os.getenv("MESSAGE_LANG")
-    CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
-
     # Create required classes for the compiler
     console_io = ConsoleIO()
     error_handler = ErrorHandler(console_io=console_io, language=MESSAGE_LANG)
@@ -88,8 +83,8 @@ def main():
     compile_logo()
 
 
-if __name__ == "__main__":
-
+# if __name__ == "__main__":
+def logo():
     def get_cmd_line_args():
         arg_parser = argparse.ArgumentParser(
             prog="Logomotion", description="Compile logo to java via python"
@@ -105,10 +100,10 @@ if __name__ == "__main__":
             content = file.readlines()
         return "".join(content)
 
-    # # Load variables from .env file
-    # dotenv.load_dotenv()
-    # MESSAGE_LANG = os.getenv("MESSAGE_LANG")
-    # CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
+    # Load variables from .env file
+    dotenv.load_dotenv()
+    MESSAGE_LANG = os.getenv("MESSAGE_LANG")
+    CODE_GEN_LANG = os.getenv("CODE_GEN_LANG")
 
     # Get command line arguments
     args = get_cmd_line_args()
