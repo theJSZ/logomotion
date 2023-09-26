@@ -85,13 +85,13 @@ def main():
 
 # if __name__ == "__main__":
 def logotesti(filename):
-    def get_cmd_line_args():
-        arg_parser = argparse.ArgumentParser(
-            prog="Logomotion", description="Compile logo to java via python"
-        )
-        arg_parser.add_argument("filepath")
-        arg_parser.add_argument("-d", "--debug", action="store_true")
-        return arg_parser.parse_args()
+    # def get_cmd_line_args():
+    #     arg_parser = argparse.ArgumentParser(
+    #         prog="Logomotion", description="Compile logo to java via python"
+    #     )
+    #     arg_parser.add_argument("filepath")
+    #     arg_parser.add_argument("-d", "--debug", action="store_true")
+    #     return arg_parser.parse_args()
 
     def load_file(filename):
         """Loads a file and returns contents as a string."""
