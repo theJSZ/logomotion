@@ -64,11 +64,18 @@ class ErrorHandler:
         fin_msg = msg_dict[FIN]
         eng_msg = msg_dict[ENG]
 
+        error_str = kwargs["prodval"]
+
+        if isinstance(error_str, str):
+            error_len = len(error_str)
+        else:
+            error_len = 0
+
         for key, value in kwargs.items():
             fin_msg = fin_msg.replace(f"@{key}", str(value))
             eng_msg = eng_msg.replace(f"@{key}", str(value))
 
-        err_msgs = {FIN: fin_msg, ENG: eng_msg, "start": lexspan[0], "end": lexspan[1]}
+        err_msgs = {FIN: fin_msg, ENG: eng_msg, "start": lexspan[0], "end": lexspan[1] + error_len}
 
         # Lexer is ran multiple times in the program
         # and causes the same error messages to occur
