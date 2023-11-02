@@ -75,7 +75,12 @@ class ErrorHandler:
             fin_msg = fin_msg.replace(f"@{key}", str(value))
             eng_msg = eng_msg.replace(f"@{key}", str(value))
 
-        err_msgs = {FIN: fin_msg, ENG: eng_msg, "start": lexspan[0], "end": lexspan[1] + error_len}
+        err_msgs = {
+            FIN: fin_msg,
+            ENG: eng_msg,
+            "start": lexspan[0],
+            "end": lexspan[1] + error_len - 1,
+        }
 
         # Lexer is ran multiple times in the program
         # and causes the same error messages to occur
