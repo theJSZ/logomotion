@@ -69,7 +69,7 @@ class ErrorHandler:
         if isinstance(error_str, str):
             error_len = len(error_str)
         else:
-            error_len = 0
+            return
 
         for key, value in kwargs.items():
             fin_msg = fin_msg.replace(f"@{key}", str(value))
