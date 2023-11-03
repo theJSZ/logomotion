@@ -64,12 +64,14 @@ class ErrorHandler:
         fin_msg = msg_dict[FIN]
         eng_msg = msg_dict[ENG]
 
-        error_str = kwargs["prodval"]
+        error_len = 0
+        if kwargs:
+            error_str = kwargs["prodval"]
 
-        if isinstance(error_str, str):
-            error_len = len(error_str)
-        else:
-            return
+            if isinstance(error_str, str):
+                error_len = len(error_str)
+            else:
+                return
 
         for key, value in kwargs.items():
             fin_msg = fin_msg.replace(f"@{key}", str(value))
