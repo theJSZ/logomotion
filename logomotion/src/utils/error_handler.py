@@ -65,7 +65,8 @@ class ErrorHandler:
         eng_msg = msg_dict[ENG]
 
         error_len = 0
-        if kwargs:
+
+        if "prodval" in kwargs.keys():
             error_str = kwargs["prodval"]
 
             if isinstance(error_str, str):
