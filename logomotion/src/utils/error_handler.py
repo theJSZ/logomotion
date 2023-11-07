@@ -64,7 +64,7 @@ class ErrorHandler:
         fin_msg = msg_dict[FIN]
         eng_msg = msg_dict[ENG]
 
-        error_len = 0
+        error_len = 1
 
         print(f"kwargs:")
         print(f"msg_id: {msg_id}")
