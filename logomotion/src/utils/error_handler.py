@@ -66,6 +66,10 @@ class ErrorHandler:
 
         error_len = 0
 
+        print(f"kwargs:")
+        for key in kwargs.keys():
+            print(key, kwargs.key)
+
         if "prodval" in kwargs.keys():
             error_str = kwargs["prodval"]
 
