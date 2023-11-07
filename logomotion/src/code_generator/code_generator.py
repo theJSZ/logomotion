@@ -336,9 +336,11 @@ class JavaCodeGenerator:
 
     def write(self, path=None):
         """write a Java file"""
+        print("writing java in logomotion code generator")
         path = path if path is not None else PATH
+        print(f"path: {path}")
         try:
-            with open(path + self._name + "paska.java", mode="w+", encoding="utf-8") as file:
+            with open(path + self._name + ".java", mode="w+", encoding="utf-8") as file:
                 file.write(START_METHOD)
                 for fname in self._preconf_funcs_dict.keys():
                     file.write(self._preconf_funcs_dict[fname] + " ")
