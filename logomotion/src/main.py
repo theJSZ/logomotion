@@ -72,6 +72,7 @@ def main():
         if start_node and not error_handler.errors:
             logger.debug("Generated code:")
             start_node.generate_code()
+            print("generating code")
             code_generator.write()
         else:
             error_handler.create_json_file()
