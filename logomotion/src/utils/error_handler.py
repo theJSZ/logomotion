@@ -68,16 +68,19 @@ class ErrorHandler:
 
         print(f"kwargs:")
         print(f"msg_id: {msg_id}")
-        for key in kwargs.keys():
-            print(f"key: {key}, value: {kwargs[key]}")
 
-        if "prodval" in kwargs.keys():
-            error_str = kwargs["prodval"]
+        # "kirjoitit nönnönnöö, en ymmärrä mitä tarkoitat"
+        if msg_id == "parser_error":
+            for key in kwargs.keys():
+                print(f"key: {key}, value: {kwargs[key]}")
 
-            if isinstance(error_str, str):
-                error_len = len(error_str)
-            else:
-                return
+            if "prodval" in kwargs.keys():
+                error_str = kwargs["prodval"]
+
+                if isinstance(error_str, str):
+                    error_len = len(error_str)
+                else:
+                    return
 
         for key, value in kwargs.items():
             fin_msg = fin_msg.replace(f"@{key}", str(value))
@@ -87,7 +90,7 @@ class ErrorHandler:
             FIN: fin_msg,
             ENG: eng_msg,
             "start": lexspan[0],
-            "end": lexspan[1] + error_len,
+            "end": lexspan[1] + error_len + 1,  # added + 1
         }
 
         # Lexer is ran multiple times in the program
