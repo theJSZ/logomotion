@@ -68,7 +68,7 @@ class ErrorHandler:
 
         print(f"kwargs:")
         for key in kwargs.keys():
-            print(f'key: {key}, value: {kwargs.key})
+            print(f"key: {key}, value: {kwargs.key}")
 
         if "prodval" in kwargs.keys():
             error_str = kwargs["prodval"]
