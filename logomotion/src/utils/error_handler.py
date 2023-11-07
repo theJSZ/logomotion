@@ -67,6 +67,7 @@ class ErrorHandler:
         error_len = 0
 
         print(f"kwargs:")
+        print(f"msg_id: {msg_id}")
         for key in kwargs.keys():
             print(f"key: {key}, value: {kwargs.key}")
 
