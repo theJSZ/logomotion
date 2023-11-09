@@ -521,7 +521,7 @@ class LRParser:
                 # the user defined p_error() function if this is the
                 # first syntax error.  This function is only called if
                 # errorcount == 0.
-                if errorcount or self.errorok:
+                if errorcount == 0 or self.errorok:
                     errorcount = error_count
                     self.errorok = False
                     errtoken = lookahead
