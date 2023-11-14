@@ -90,7 +90,7 @@ class ErrorHandler:
             FIN: fin_msg,
             ENG: eng_msg,
             "start": lexspan[0],
-            "end": lexspan[1],  # + error_len,
+            "end": lexspan[1] + error_len,
         }
 
         # Lexer is ran multiple times in the program
