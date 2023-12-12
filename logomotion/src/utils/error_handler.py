@@ -69,10 +69,11 @@ class ErrorHandler:
         print(f"kwargs:")
         print(f"msg_id: {msg_id}")
 
-        # "kirjoitit nönnönnöö, en ymmärrä mitä tarkoitat"
+        # when the code was non parseable because of an unrecognised word
+        # e.g. "forrward"
         if msg_id == "parser_error":
-            for key in kwargs.keys():
-                print(f"key: {key}, value: {kwargs[key]}")
+            # for key in kwargs.keys():
+            #     print(f"key: {key}, value: {kwargs[key]}")
 
             if "prodval" in kwargs.keys():
                 error_str = kwargs["prodval"]
