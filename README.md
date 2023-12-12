@@ -3,7 +3,7 @@ This repo is a modified copy of  the original [Logomotion](https://github.com/lo
 
 Small changes were also made to how error messages are generated. There were two reasons for this:
 
-* error ranges were not produced correctly in `error_handler.py`. This was an issue for us because we wanted the editor to underline errors based on the `start` and `end` in the error message. This was mostly achieved. For example in a code such as 
+* error ranges were not produced correctly in `error_handler.py`. This was an issue for us because we wanted the editor to underline errors based on the `start` and `end` in the error message. This was mostly achieved. For example in a code such as
 ```
 make "a 1
 show "a + 1
@@ -14,7 +14,7 @@ message: You tried to do a calculation with something that is not a number.
 line: 2
 start: 6 - end: 11
 ```
-* We would have liked all errors to be detected at once. This was not achieved. For example in
+* We would have liked all errors to be detected at once. This was not achieved. For example if we add a non parsable line to the previous example
 ```
 make "a 1
 show "a + 1
@@ -26,6 +26,7 @@ message: I could not understand 'asdf'.
 line: 3
 start: 1 - end: 4
 ```
+After fixing line 3 of course we get back to the situation in the first example.
 
 
 *Original Logomotion README starts here:*
